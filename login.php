@@ -1,7 +1,8 @@
 <?php 
 include ("config/databaseconnect.php");
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) 
+{
     $email = $_POST["txtemail"];
     $password = $_POST["txtpassword"];
 
@@ -10,7 +11,7 @@ if (isset($_POST["submit"])) {
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['user'] = $user;
-        echo "<script>alert(".$_SESSION['user']['u_id'].")</script>";
+        echo "<script>console.log(".$_SESSION['user'].")</script>";
         header("location:index.php");
     }
     else {
@@ -18,7 +19,6 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +52,7 @@ if (isset($_POST["submit"])) {
 
   <div class="hero_area">
     <!-- header section strats -->
-    <?php include("components/header.php") ?>
+    <?php include "components/header.php" ?>
     <!-- end header section -->
   </div>
 
@@ -95,7 +95,7 @@ if (isset($_POST["submit"])) {
     </div>
   </section>
 
-  <?php include("components/footer.php") ?>
+  <?php include "components/footer.php" ?>
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>

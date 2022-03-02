@@ -33,12 +33,13 @@
            <?php 
             if(count($_SESSION) == 0) {
               echo "<a href='login.php'>Log in</a>";
-            } else {
+            } 
+            else {
+              echo "<h1>".$_SESSION['users']."</h1>";
               echo "<a href='config/logout.php'>Log out</a>";
-              echo "Welcome ".$_SESSION['users']['u_name'];
+              echo "Welcome ".$_SESSION['user']['u_name'];
             }
            ?>
-          
            <a href="">
              <img src="images/cart.png" alt="">
            </a>
