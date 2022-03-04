@@ -9,20 +9,20 @@
            Fior
          </span>
        </a>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
            <ul class="navbar-nav  ">
              <li class="nav-item active">
-               <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="index.php">Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="shop.php">Shop</a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="about.php">About</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="gallery.php">Gallery </a>
              </li>
              <li class="nav-item">
                <a class="nav-link" href="contact.php">Contact us</a>
@@ -51,5 +51,3 @@
      </nav>
    </div>
  </header>
- <footer>
- </footer>

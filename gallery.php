@@ -31,9 +31,7 @@
 <body class="sub_page">
 
   <div class="hero_area">
-    <!-- header section strats -->
     <?php include("components/header.php") ?>
-    <!-- end header section -->
   </div>
 
 

@@ -32,7 +32,7 @@
 
   <div class="hero_area">
     <!-- header section strats -->
-    <?php include("components/header.php") ?>
+    <?php include "components/header.php" ?>
     <!-- end header section -->
   </div>
 
@@ -66,11 +66,11 @@
     </div>
   </section>
 
-  <?php include("components/footer.php") ?>
+  <?php include "components/footer.php" ?>
   <!-- footer section -->
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
 
 </body>

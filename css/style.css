@@ -1,5 +1,6 @@
 html {
   overflow-x: hidden;
+  --main-orange: #e1603a;
 }
 
 body {
@@ -825,3 +826,49 @@ a:focus {
   color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */
+
+/* SHOPS PAGE - START */
+.bg-primary  {
+  background-color: var(--main-orange) !important;
+  border-color: var(--main-orange) !important;
+}
+.ratings i {
+  font-size: 16px;
+  color: red;
+}
+
+.strike-text {
+  color: red;
+  text-decoration: line-through;
+}
+
+.product-image {
+  max-height: 150px;
+  object-fit: cover;
+  max-width: 150px;
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 3px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.spec-1 {
+  color: #938787;
+  font-size: 15px;
+}
+
+h5.product-title {
+  font-weight: 400;
+}
+
+.para {
+  font-size: 16px;
+}
+/* SHOPS PAGE - END */
