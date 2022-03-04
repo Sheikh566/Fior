@@ -843,9 +843,9 @@ a:focus {
 }
 
 .product-image {
-  max-height: 150px;
   object-fit: cover;
-  max-width: 150px;
+  height: 100px;
+  width: 150px;
 }
 
 .dot {
