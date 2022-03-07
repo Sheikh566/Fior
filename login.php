@@ -1,4 +1,7 @@
 <?php 
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 include ("config/databaseconnect.php");
 
 if (isset($_POST["submit"])) 
@@ -9,7 +12,7 @@ if (isset($_POST["submit"]))
     $query = "SELECT * FROM `users` WHERE `u_email` = '$email' && `u_password` = '$password'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_array($result);
         $_SESSION['user'] = $user;
         echo "<script>console.log(".$_SESSION['user'].")</script>";
         header("location:index.php");

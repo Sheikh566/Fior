@@ -31,14 +31,11 @@
                     <h2>
                       Welcome
                     </h2>
-                    <h1>
-                      Flowers shop
+                    <h1 class="title-text-gradient">
+                      Fior Flowers.
                     </h1>
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                      the
-                      industry's
-                      standard dummy text ever since
+                    Bright and sunny arrangements designed to remind us that <br>spring is on its way.
                     </p>
                     <div>
                       <a href="">Buy Now</a>
@@ -118,7 +115,7 @@
         <div class="col-md-5 col-xl-5">
           <div class="detail_box">
             <div class="heading_container justify-content-end">
-              <h2>
+              <h2 class="title-text-gradient">
                 About Flowers
               </h2>
             </div>
@@ -145,7 +142,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>
+          <h2 >
             Why Choose Us
           </h2>
           <p>
@@ -165,7 +162,6 @@
       </div>
     </div>
   </section>
-
   <!-- end why section -->
 
   <!-- gallery section -->
@@ -174,7 +170,7 @@
       03
     </div>
     <div class="heading_container justify-content-center">
-      <h2>
+      <h2 class="title-text-gradient">
         Our Gallery
       </h2>
     </div>
@@ -224,7 +220,7 @@
   <section class="client_section layout_padding">
     <div class="container">
       <div class="heading_container justify-content-center">
-        <h2>
+        <h2 class="title-text-gradient">
           What Our Customers Say
         </h2>
         <div class="section_number">
@@ -286,7 +282,6 @@
 
   <!-- end info_section -->
   <?php include "components/footer.php" ?>
-
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.js"></script>

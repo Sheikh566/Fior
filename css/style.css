@@ -826,7 +826,32 @@ a:focus {
   color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */
-
+.title-text-gradient {
+  background: linear-gradient(to right, #E1603A 0%, #CC1878 50%, #008ACF 100%);  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.create-button {
+  position: fixed;
+  top: 85%;
+  left: 91%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px; width: 50px;
+  background-color: var(--main-orange);
+  border: none;
+  border-radius: 50%;
+}
+.create-button > a {
+  
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+}
+.create-button > a:hover  {
+  color: white;
+}
 /* SHOPS PAGE - START */
 .bg-primary  {
   background-color: var(--main-orange) !important;

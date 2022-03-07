@@ -1,5 +1,7 @@
   <?php 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+      session_start();
+  }
   ?>
   <header class="header_section">
    <div class="container">
@@ -35,12 +37,11 @@
               echo "<a href='login.php'>Log in</a>";
             } 
             else {
-              echo "<h1>".$_SESSION['users']."</h1>";
               echo "<a href='config/logout.php'>Log out</a>";
               echo "Welcome ".$_SESSION['user']['u_name'];
             }
            ?>
-           <a href="">
+           <a href="cart.php">
              <img src="images/cart.png" alt="">
            </a>
            <form class="form-inline">
