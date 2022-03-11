@@ -1,3 +1,18 @@
+<?php 
+    include "config/databaseconnect.php";
+
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    $ids = implode(",", $_SESSION['cart']);
+    $products_result = mysqli_query($conn, 
+        "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`, `c_name` 
+        FROM `products`
+        INNER JOIN category
+        ON `products`.`c_id` = `category`.`c_id` WHERE `p_id` IN ('$ids');"
+    );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

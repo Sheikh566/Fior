@@ -88,26 +88,18 @@
         </div>
         <div class="col-md-3">
           <div class="info_contact">
-            <h5>
-              Contact
-            </h5>
+            <h5>Contact </h5>
             <div>
               <img src="images/location-white.png" alt="">
-              <p>
-                Kati Pahari
-              </p>
+              <p>Shop # 34-A, ABC Road </p>
             </div>
             <div>
               <img src="images/telephone-white.png" alt="">
-              <p>
-                +92 1234567890
-              </p>
+              <p>+92 1234567890 </p>
             </div>
             <div>
               <img src="images/envelope-white.png" alt="">
-              <p>
-                sheikh.abdullah.566@gmail.com
-              </p>
+              <p>support@fior.com</p>
             </div>
           </div>
         </div>

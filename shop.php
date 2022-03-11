@@ -1,5 +1,6 @@
 <?php 
   include "config/databaseconnect.php";
+  
 
   $products_result = mysqli_query($conn, "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`, `c_name` 
     FROM `products`
@@ -8,6 +9,14 @@
   );
   if (!$products_result) {
     echo "<script>alert('Products fetch failed!')</script>";
+  }
+  
+
+  if (isset($_POST['addToCart'])) {
+    if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = [];
+    }
+    array_push($_SESSION['cart'], $_POST['p_id']);
   }
 ?>
 
@@ -56,9 +65,9 @@
               </div>
               <h6 class="text-success">Free shipping</h6>
               <div class="d-flex flex-column mt-4">
-                <form action="config/managecart.php" method="GET">
+                <form  method="POST">
                   <input type="hidden" name="p_id" value="<?php echo $row['p_id']?>">
-                  <input class="btn btn-primary btn-sm bg-primary" type="submit" value="Add to cart"/>
+                  <input class="btn btn-primary btn-sm bg-primary" type="submit" name="addToCart" value="Add to cart"/>
                 </form>
                 <span class="text-center">Quantity Left: <?php echo $row['p_quantity'] ?></span>
               </div>

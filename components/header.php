@@ -37,8 +37,8 @@
               echo "<a href='login.php'>Log in</a>";
             } 
             else {
-              echo "<a href='config/logout.php'>Log out</a>";
-              echo "Welcome ".$_SESSION['user']['u_name'];
+              echo $_SESSION['user']['u_name']." | ";
+              echo "<a href='config/logout.php'>&nbspLog out</a>";
             }
            ?>
            <a href="cart.php">

@@ -38,7 +38,7 @@
                     Bright and sunny arrangements designed to remind us that <br>spring is on its way.
                     </p>
                     <div>
-                      <a href="">Buy Now</a>
+                      <a href="./shop.php">Buy Now</a>
                     </div>
                   </div>
                 </div>
