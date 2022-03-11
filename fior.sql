@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2022 at 02:45 PM
+-- Generation Time: Mar 11, 2022 at 04:43 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,6 +38,32 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`c_id`, `c_name`) VALUES
 (1, 'Rose');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `i_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `p_id` int(11) NOT NULL,
+  `i_qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `o_id` int(11) NOT NULL,
+  `o_date` datetime NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `o_total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -96,6 +122,21 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`c_id`);
 
 --
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`i_id`),
+  ADD KEY `order_fk` (`order_id`),
+  ADD KEY `product_fk` (`p_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`o_id`),
+  ADD KEY `cutomer_fk` (`u_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -120,10 +161,22 @@ ALTER TABLE `category`
   MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -134,6 +187,19 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD CONSTRAINT `order_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`o_id`),
+  ADD CONSTRAINT `product_fk` FOREIGN KEY (`p_id`) REFERENCES `products` (`p_id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `cutomer_fk` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`);
 
 --
 -- Constraints for table `products`

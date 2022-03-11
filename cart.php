@@ -1,16 +1,30 @@
 <?php 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     include "config/databaseconnect.php";
 
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
-    $ids = implode(",", $_SESSION['cart']);
+    $ids = "'".implode("','", $_SESSION['cart'])."'";
+    $ids = "'3','4'";
+    echo "<script>console.log(".json_encode($ids).")</script>";
+    // $products_result = mysqli_query($conn, 
+    //     "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`, `c_name` 
+    //     FROM `products`
+    //     INNER JOIN category
+    //     ON `products`.`c_id` = `category`.`c_id` WHERE `p_id` IN (".$ids.")"
+    // );
     $products_result = mysqli_query($conn, 
-        "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`, `c_name` 
-        FROM `products`
-        INNER JOIN category
-        ON `products`.`c_id` = `category`.`c_id` WHERE `p_id` IN ('$ids');"
+        "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`
+        FROM `products` WHERE `p_id` = 3"
     );
+    if (!$products_result) {
+        echo "<script>alert('Error: ".mysqli_error($conn)."')</script>";
+    } else {
+        echo "<script>console.log(".json_encode(mysqli_fetch_assoc($products_result)).")</script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +58,28 @@
                   <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
                 </div>
             </div>
-            <div class="row">
+            <?php 
+            while($row = mysqli_fetch_assoc($products_result)) {
+            ?>
+            <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
-                    <div class="col">
-                        <div class="row text-muted">Shirt</div>
-                        <div class="row">Cotton T-shirt</div>
+                    <div class="col-2">
+                        <img class="img-fluid" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['p_image']); ?>">
                     </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    <div class="col">
+                        <div class="row text-muted"></div>
+                        <div class="row"><?php echo $row['p_name'] ?></div>
+                    </div>
+                    <div class="col">
+                        <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> 
+                    </div>
+                    <div class="col">Rs. <?php echo $row['p_price'] ?> <span class="close">&#10005;</span></div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
+            
             <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
                     <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>

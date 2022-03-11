@@ -1,6 +1,8 @@
-<?php 
+<?php
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
   include "config/databaseconnect.php";
-  
 
   $products_result = mysqli_query($conn, "SELECT `p_id`, `p_name`, `p_price`, `p_description`, `p_quantity`, `p_image`, `c_name` 
     FROM `products`
@@ -14,9 +16,9 @@
 
   if (isset($_POST['addToCart'])) {
     if (!isset($_SESSION['cart'])) {
-      $_SESSION['cart'] = [];
+      $_SESSION['cart'] = array();
     }
-    array_push($_SESSION['cart'], $_POST['p_id']);
+    $_SESSION['cart'][] = $_POST['p_id'];
   }
 ?>
 
