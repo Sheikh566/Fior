@@ -4,6 +4,7 @@
     }
     include "config/databaseconnect.php";
 
+    // CART ITEMS FETCH
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
@@ -17,9 +18,11 @@
         $products_result = mysqli_query($conn, $query);
         if (!$products_result) {
             echo "<script>alert('Error: ".mysqli_error($conn)."')</script>";
-        }
+        } 
     }
+
     $cartWorth = 0;       
+    // PURCHASE REQUEST
     if (isset($_POST['confirm'])) {
         $u_id =  $_SESSION['user']['u_id'];
         $total = $_POST['total'] + (int)$_POST['delivery-type'];
@@ -37,6 +40,8 @@
                 );
                 if (!$invoiceResult) {
                     echo "<script>alert('Error: ".mysqli_error($conn)."')</script>";
+                } else {
+                    header("Refresh:0");
                 }
             }
             $_SESSION['cart'] = [];
@@ -74,7 +79,7 @@
             </div>
             <!-- <============ CART ITEMS LIST GENERATOR ============> -->
             <?php 
-            if (isset($products_result)) {
+            if (isset($products_result) && $_SESSION['cart']) {
                 foreach (mysqli_fetch_all($products_result) as $row) {
                     $cartWorth += count(array_keys($_SESSION['cart'], $row[0]))*$row[2]; // Multiply item price and item qty
             ?>     
@@ -112,7 +117,8 @@
             </div>
         </div>
         <!-- <============ BILLING SIDE PANEL ============> -->
-        <div class="col-md-4 summary">
+        <?php if (count($_SESSION['cart']) > 0) { ?>
+        <div class="col-md-4 summary" id="billing">
             <div>
                 <h5><b>Summary</b></h5>
             </div>
@@ -147,7 +153,7 @@
                     type="button"
                     class="btn btn-primary checkout-btn"
                     data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
+                    data-bs-target="#staticBackdrop" 
                 >CHECKOUT
                 </button>
                 <!-- Modal -->
@@ -174,12 +180,14 @@
                 </div>
             </form>
         </div>
+        <?php } ?>
         <!-- <============ END - BILLING SIDE PANEL ============> -->
     </div>
 </div>
 <br>
-
+  <-- <============ FOOTER  ============> -->
   <?php include "components/footer.php" ?>
+  <-- <============ SCRIPTS ============> -->
   <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
   <script>
@@ -199,7 +207,6 @@
             $('#delivery-fees').text("Rs. ".concat(delivery));
         });
        
-        $('.summary').css('opacity', <?php echo (count($_SESSION['cart']) == 1) ?>);
       })
   </script>
 </body>
