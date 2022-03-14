@@ -37,7 +37,7 @@
           <?php 
           while ($row = mysqli_fetch_assoc($products_result)) {
           ?>
-            <div class="row p-2 bg-white border rounded mt-2">
+          <div class="row p-2 bg-white border rounded mt-2">
             <div class="col-md-3 mt-1">
               <img
                 class="img-fluid img-responsive rounded product-image"
@@ -48,8 +48,10 @@
               <h5 class="product-title" class="product-title"><?php echo $row['p_name'] ?></h5>
               <div class="d-flex flex-row">
                 <div class="ratings mr-2">
-                  <i class="fa fa-star"></i><i class="fa fa-star"></i
-                  ><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
                 </div>
                 <span><?php echo $row['c_name'] ?></span>
               </div>
@@ -71,7 +73,7 @@
                   <input type="hidden" name="p_id" value="<?php echo $row['p_id']?>">
                   <input class="btn btn-primary btn-sm bg-primary" type="submit" name="addToCart" value="Add to cart"/>
                 </form>
-                <span class="text-center">Quantity Left: <?php echo $row['p_quantity'] ?></span>
+                <span class="">Qty. Left: <?php echo $row['p_quantity'] ?></span>
               </div>
             </div>
           </div>

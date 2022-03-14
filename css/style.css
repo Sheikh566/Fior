@@ -91,6 +91,7 @@ body {
   padding: 10px 30px;
   color: #434242;
   text-align: center;
+  
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active .nav-link {
@@ -128,6 +129,10 @@ a:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
+.custom_nav-container {
+  padding: 5px 0;
+  height: 50px;
+}
 
 .custom_nav-container .nav_search-btn {
   background-image: url(../images/search-icon.png);
@@ -142,16 +147,12 @@ a:focus {
 
 .navbar-brand span {
   font-family: 'Baloo Chettan', cursive;
-  font-size: 24px;
+  font-size: 29px;
   font-weight: 700;
   color: #191919;
   margin-top: 5px;
 }
 
-.custom_nav-container {
-  z-index: 99999;
-  padding: 5px 0;
-}
 
 .custom_nav-container .navbar-toggler {
   outline: none;
@@ -173,11 +174,13 @@ a:focus {
 
 .quote_btn-container a {
   color: #050505;
+  margin: 0px 15px;
 }
 
 .quote_btn-container a img {
-  width: 15px;
-  margin: 0 25px;
+  width: 18px;
+  margin: 0 0px;
+  transform: translate(16px, 0);
 }
 
 /*end header section*/

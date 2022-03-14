@@ -48,8 +48,8 @@
         <div class="col-md-5 col-xl-5">
           <div class="detail_box">
             <div class="heading_container justify-content-end">
-              <h2>
-                About Flowers
+              <h2 class="title-text-gradient">
+                About Fior
               </h2>
             </div>
             <p>

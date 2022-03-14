@@ -65,7 +65,7 @@
 
 .main {
   margin: 0;
-  padding: 2vh 0;
+  padding: 1vh 0;
   width: 100%
 }
 
@@ -84,7 +84,7 @@ a {
 }
 
 img {
-  width: 3.5rem
+  width: 5.5rem
 }
 
 .back-to-shop {
@@ -132,9 +132,14 @@ input:focus::-webkit-input-placeholder {
   font-size: 0.7rem;
   margin-top: 4vh;
   padding: 1vh;
-  border: 3px solid white;
-  border-radius: 20 20;
-  box-shadow: 6px 7px 13px -1px rgba(0,0,0,0.5), -3px -3px 13px -1px #f89577;
+  border: 2px solid white;
+  box-sizing: border-box;
+  border-radius: 30px;
+  box-shadow: 6px 7px 13px -1px rgba(0,0,0,0.5), -3px -3px 13px -1px rgb(255, 255, 255, .7);
+  transition: border .2s ease-in-out;
+}
+.checkout-btn:hover {
+  border: 5px solid white;
 }
 
 .btn:focus {
