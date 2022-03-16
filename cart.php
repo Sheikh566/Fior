@@ -185,9 +185,9 @@
     </div>
 </div>
 <br>
-  <-- <============ FOOTER  ============> -->
+  <!-- <============ FOOTER  ============> -->
   <?php include "components/footer.php" ?>
-  <-- <============ SCRIPTS ============> -->
+  <!-- <============ SCRIPTS ============> -->
   <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
   <script>

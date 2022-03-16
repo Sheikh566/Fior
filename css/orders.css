@@ -1,20 +1,15 @@
 .card {
   border: none;
 }
-.modal {
-  margin: auto;
-  width: 38%;
-  max-width: 600px;
-  padding: 4vh 0;
+.my-modal {
   box-shadow: 0 6px 20px 0 rgba(236, 129, 129, 0.19);
   border-top: 3px solid rgb(252, 103, 49);
   border-bottom: 3px solid rgb(252, 103, 49);
-  border-left: none;
-  border-right: none
+
 }
 
 @media(max-width:768px) {
-  .modal {
+  .my-modal {
       width: 90%
   }
 }
@@ -65,29 +60,29 @@
   padding: 0
 }
 
-.footer {
+.my-footer {
   padding: 0 8%;
   font-size: x-small;
   color: black
 }
 
-.footer img {
+.my-footer img {
   height: 5vh;
   opacity: 0.2
 }
 
-.footer a {
+.my-footer a {
   color: rgb(252, 103, 49)
 }
 
-.footer .col-10,
+.my-footer .col-10,
 .col-2 {
   display: flex;
   padding: 3vh 0 0;
   align-items: center
 }
 
-.footer .row {
+.my-footer .row {
   margin: 0
 }
 
@@ -193,4 +188,8 @@
 #progressbar li.active:before,
 #progressbar li.active:after {
   background: rgb(252, 103, 49)
+}
+
+.order-serial-no {
+  font-size: 18px !important ;
 }

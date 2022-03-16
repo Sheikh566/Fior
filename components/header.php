@@ -40,7 +40,7 @@
             echo "<a href='login.php'>Log in</a>";
           } 
           else {
-            echo "<a href='orders.php' >".$_SESSION['user']['u_name']."</a> &nbsp; &nbsp; &nbsp;| ";
+            echo "<a href='orders.php' >".$_SESSION['user']['u_name']."</a> &nbsp; &nbsp;| ";
             echo "<a href='config/logout.php'>&nbspLog out</a>";
           }
           ?>
