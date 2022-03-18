@@ -37,11 +37,11 @@
         <div class="quote_btn-container ">
           <?php  
           if(!isset($_SESSION['user'])) {
-            echo "<a href='login.php'>Log in</a>";
+            echo "<a href='login.php?lastPage=".$_SERVER['REQUEST_URI']."'>Log in</a>";
           } 
           else {
             echo "<a href='orders.php' >".$_SESSION['user']['u_name']."</a> &nbsp; &nbsp;| ";
-            echo "<a href='config/logout.php'>&nbspLog out</a>";
+            echo "<a href='config/logout.php?lastPage=".$_SERVER['REQUEST_URI']."'>&nbspLog out</a>";
           }
           ?>
           <a href="cart.php">

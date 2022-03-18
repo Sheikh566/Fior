@@ -13,11 +13,10 @@
     echo "<script>alert('Products fetch failed!')</script>";
   }
   
-
   if (isset($_POST['addToCart'])) {
     if (!isset($_SESSION['cart'])) {
       $_SESSION['cart'] = array();
-    }
+    } 
     $_SESSION['cart'][] = $_POST['p_id'];
   }
 ?>
@@ -32,11 +31,17 @@
     <?php include "components/header.php" ?>
   </div>
   <div class="container mt-5 mb-5">
-      <div class="d-flex justify-content-center row">
-        <div class="col-md-10">
-          <?php 
-          while ($row = mysqli_fetch_assoc($products_result)) {
-          ?>
+    <!-- LOGIN ALERT -->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="loginAlert" hidden>
+      <strong>You are not logged in!</strong> Please <a href='login.php?lastPage=<?php echo $_SERVER['REQUEST_URI']?>'>Log In</a> to add items in your cart.
+      <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+
+    <div class="d-flex justify-content-center row">
+      <div class="col-md-10">
+        <?php 
+        while ($row = mysqli_fetch_assoc($products_result)) {
+        ?>
           <div class="row p-2 bg-white border rounded mt-2">
             <div class="col-md-3 mt-1">
               <img
@@ -69,9 +74,9 @@
               </div>
               <h6 class="text-success">Free shipping</h6>
               <div class="d-flex flex-column mt-4">
-                <form  method="POST">
+                <form method="POST" id="addToCartForm">
                   <input type="hidden" name="p_id" value="<?php echo $row['p_id']?>">
-                  <input class="btn btn-primary btn-sm bg-primary" type="submit" name="addToCart" value="Add to cart"/>
+                  <input class="btn btn-primary btn-sm bg-primary addToCart" type="button" name="addToCart" value="Add to cart"/>
                 </form>
                 <span class="">Qty. Left: <?php echo $row['p_quantity'] ?></span>
               </div>
@@ -80,14 +85,27 @@
           <?php
           }
           ?>
-          
           </div>
         </div>
       </div>
 
   <?php include "components/footer.php" ?>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script>
+    $(document).ready(function() {
+      //$('#loginAlert').hide();
+      $('.btn-close').click(() => $('#loginAlert').attr("hidden"));
+      $('.addToCart').click(function() {
+        let loggedIn = <?php echo json_encode(isset($_SESSION['user'])) ?>;
+        if (loggedIn) { 
+          $('.addToCart').removeAttr("type").attr("type", "submit");
+        } else {
+          $('#loginAlert').removeAttr("hidden");  
+        }
+      })
+      
+    })
+  </script>
 </body>
 </html>

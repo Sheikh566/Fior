@@ -5,7 +5,7 @@
         if ($conn) {
             $query = "DELETE FROM `products` WHERE `p_id`='$id'";
             echo mysqli_query($conn, $query) ? 
-            header('location:show.php') : "<script>alert('Product didnt Deleted')</script>";
+            header('location:index.php') : "<script>alert('Product didnt Deleted')</script>";
         }else {
             echo "<script>alert('Connection Failed')</script>";
         }

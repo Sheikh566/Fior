@@ -1,3 +1,4 @@
+
 .card {
   border: none;
 }
@@ -192,4 +193,12 @@
 
 .order-serial-no {
   font-size: 18px !important ;
+}
+
+.details {
+  background-color: transparent;
+  border: none;
+}
+#product-name {
+  text-align: start;
 }

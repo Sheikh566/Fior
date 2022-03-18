@@ -1,11 +1,18 @@
-<?php session_start() ?>
+<?php 
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+  if (!isset($_SESSION['user'])) {
+    header('location:../../login.php?lastPage='.$_SERVER['REQUEST_URI']);
+  } 
+?>
 
 <header class="header_section">
    <div class="container">
      <nav class="navbar navbar-expand-lg custom_nav-container ">
        <a class="navbar-brand" href="index.php">
          <span>
-           Fior <span style="color: var(--main-orange)"> &lt; admin/ &gt; </span>
+           Fior <span class="title-text-gradient"> &lt; admin/ &gt; </span>
          </span>
        </a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,17 +21,17 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
            <ul class="navbar-nav  ">
-             <li class="nav-item active">
-               <a class="nav-link" href="index.php">Dashboard</a>
+             <li class="nav-item active" id='nav-link-0'>
+               <a class="nav-link" href="../index.php">Dashboard</a>
              </li>
-             <li class="nav-item">
+             <li class="nav-item"  id='nav-link-1'>
                <a class="nav-link" href="../products/">Products</a>
              </li>
-             <li class="nav-item">
-               <a class="nav-link" href="../category/">Category</a>
+             <li class="nav-item" id='nav-link-2'>
+               <a class="nav-link"  href="../category/">Category</a>
              </li>
-             <li class="nav-item">
-               <a class="nav-link" href="users/">Users</a>
+             <li class="nav-item" id='nav-link-3'>
+               <a class="nav-link" href="../users/">Users</a>
              </li>
            </ul>
          </div>
@@ -34,9 +41,8 @@
               echo "<a href='login.php'>Log in</a>";
             } 
             else {
-              echo "<h1>".$_SESSION['users']."</h1>";
-              echo "<a href='config/logout.php'>Log out</a>";
-              echo "Welcome ".$_SESSION['user']['u_name'];
+              echo $_SESSION['user']['u_name']."&nbsp;&nbsp;&nbsp;| ";
+              echo "<a href='../config/logout.php'>Log out</a>";
             }
            ?>
            <a href="">
@@ -50,3 +56,17 @@
      </nav>
    </div>
  </header>
+ <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    // Nav link 'active' class add/remove
+    let id = localStorage.getItem('nav-link') === null ? 'nav-link-0' : localStorage.getItem('nav-link');
+    $('#'+id).addClass('active');
+    $('li.nav-item').click(function() {
+      id = $(this).attr('id');
+      localStorage.setItem('nav-link', id);
+      $('ul li').removeClass('active');
+      $('#'+id).addClass('active');
+    })
+  })
+</script>

@@ -14,8 +14,8 @@ if (isset($_POST["submit"]))
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_array($result);
         $_SESSION['user'] = $user;
-        echo "<script>console.log(".$_SESSION['user'].")</script>";
-        header("location:index.php");
+        header('location:'.$_GET['lastPage']);
+
     }
     else {
         echo "<script>alert('Invalid Email or Password!')</script>";

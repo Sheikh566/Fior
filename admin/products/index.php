@@ -20,7 +20,7 @@ if (!$result) {
   <?php include "../components/headeradmin.php" ?>
   <div class="container">
     <div class="heading_container justify-content-center">
-      <h2 class="">
+      <h2 class="my-5">
         Products
       </h2>
     </div>
@@ -55,11 +55,8 @@ if (!$result) {
             </tr>
         <?php } ?>
     </table>
-
   </div>
 
-
-  <script type="text/javascript" src="<?php echo "../../js/jquery-3.4.1.min.js"?>"></script>
   <script type="text/javascript" src="<?php echo "../../js/bootstrap.bundle.js"?>"></script>
   <script type="text/javascript" src="<?php echo "../../js/custom.js"?>"></script>
 </body>
