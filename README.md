@@ -1,5 +1,5 @@
 # Fior
-The online store of the Fior flowers
+The online store of the Fior flowers.
 
 ## TREE:
 Fior
