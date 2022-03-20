@@ -59,7 +59,7 @@
               <input type="email" placeholder="Email" />
             </div>
             <div>
-              <input type="text" placeholder="Pone Number" />
+              <input type="text" placeholder="Phone Number" />
             </div>
             <div>
               <input type="text" class="message-box" placeholder="Message" />

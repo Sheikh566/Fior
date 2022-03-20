@@ -60,6 +60,12 @@ if (!isset($_SESSION['user'])) {
              <li class="nav-item" id='nav-link-3'>
                <a class="nav-link" href="./users/">Users</a>
              </li>
+             <li class="nav-item" id='nav-link-4' >
+            <a class="nav-link" href="./orders/">Orders</a>
+           </li>
+            <li class="nav-item" id='nav-link-5' >
+              <a class="nav-link" href="./invoices/">Invoices</a>
+            </li>
            </ul>
          </div>
          <div class="quote_btn-container ">
@@ -99,7 +105,7 @@ if (!isset($_SESSION['user'])) {
     // Nav link 'active' class add/remove
     let id = localStorage.getItem('nav-link') === null ? 'nav-link-0' : localStorage.getItem('nav-link');
     $('#'+id).addClass('active');
-    $('li.nav-item').click(function() {
+    $('.nav-item').click(function() {
       id = $(this).attr('id');
       localStorage.setItem('nav-link', id);
       $('ul li').removeClass('active');

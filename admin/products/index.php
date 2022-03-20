@@ -51,12 +51,14 @@ if (!$result) {
                   src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['p_image']); ?>"
                 />
               </td>
-              <td><a href="edit.php">Edit</a> | <a href="delete.php?id=<?php echo $row['p_id'] ?>" >Delete</a></td>
+              <td class="text-nowrap"><a href="edit.php?id=<?php echo $row['p_id'] ?>">Edit</a> | <a href="delete.php?id=<?php echo $row['p_id'] ?>" >Delete</a></td>
             </tr>
         <?php } ?>
     </table>
   </div>
-
+  <button class="create-button">
+    <a href="create.php">+</a>
+  </button>
   <script type="text/javascript" src="<?php echo "../../js/bootstrap.bundle.js"?>"></script>
   <script type="text/javascript" src="<?php echo "../../js/custom.js"?>"></script>
 </body>

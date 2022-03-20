@@ -1,7 +1,7 @@
 <?php 
 include  "..\..\config\databaseconnect.php";
 
-$result = mysqli_query($conn, "SELECT * FROM `users`");
+$result = mysqli_query($conn, "SELECT `orders`.*, `users`.`u_name` FROM `orders` JOIN `users` ON `orders`.`u_id` = `users`.`u_id` ");
 if (!$result) {
   echo "<script>alert('Category could not be fetched')</script>";
 }
@@ -15,39 +15,31 @@ if (!$result) {
   <div class="container my-4">
     <div class="heading_container justify-content-center">
       <h2 class="my-5 ">
-        Users
+        Orders
       </h2>
     </div>
     <table class="table">
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email Address</th>
-          <th>Phone Number</th>
-          <th>Password</th>
-          <th>Actions</th>
+          <th>#</th>
+          <th>Time</th>
+          <th>User ID</th>
+          <th>User Name</th>
+          <th>Total</th>
         </tr>
         <?php 
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
+            <td><?php echo $row['o_id']?></td>
+            <td><?php echo $row['o_date']?></td>
             <td><?php echo $row['u_id']?></td>
             <td><?php echo $row['u_name']?></td>
-            <td><?php echo $row['u_email']?></td>
-            <td><?php echo $row['u_phone']?></td>
-            <td><?php echo $row['u_password']?></td>
-            <td>
-              <a href="./edit.php?id=<?php echo $row['u_id']?>">Edit</a> | 
-              <a href="./delete.php?id=<?php echo $row['u_id']?>">Delete</a> 
-            </td>
+            <td>Rs. <?php echo $row['o_total']?></td>
           </tr>
         <?php } ?>
     </table>
     
   </div>
-  <button class="create-button d-flex justify-content-center" >
-    <a href="create.php">+</a>
-  </button>
   <script type="text/javascript" src="<?php echo "../../js/bootstrap.bundle.js"?>"></script>
   <script type="text/javascript" src="<?php echo "../../js/custom.js"?>"></script>
 </body>

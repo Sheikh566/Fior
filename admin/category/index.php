@@ -15,7 +15,7 @@ if (!$result) {
 <body>
   <?php include "../components/headeradmin.php" ?> 
   <div class="container">
-  <div class="heading_container justify-content-center">
+    <div class="heading_container justify-content-center">
       <h2 class="my-5 ">
         Categories
       </h2>

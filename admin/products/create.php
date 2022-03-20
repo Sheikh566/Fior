@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     $result = mysqli_query($conn, $query);
     if ($result) {
         echo "<script>alert('Product Added!')</script>";
-        header("location:show.php");
+        header("location:index.php");
     }
     else {
         echo "<script>alert('Product couldnot be added!')</script>";
@@ -72,9 +72,11 @@ if (isset($_POST["submit"])) {
                 ?>
               </select> 
             </div>
-            <div>
-              <input type="file" placeholder="Image" name="image" />
+            <div class="d-flex flex-row align-items-center">
+              <span class="mx-2">Image: </span>
+              <input class="border-0 p-0 my-1 display-inline pt-2" type="file" placeholder="Image" name="image" />
             </div>
+
             <div class="d-flex  mt-4 ">
             <button type="submit" name="submit">
                 Add

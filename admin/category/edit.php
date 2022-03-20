@@ -1,19 +1,23 @@
-
 <?php 
 include "../../config/databaseconnect.php";
 
-if (isset($_POST["submit"])) {
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $cat_res = mysqli_query($conn, "SELECT `c_name` FROM `category` WHERE `c_id` = '$id'");
+  if (isset($_POST["submit"])) {
     $name = $_POST["txtname"];
 
-    $query = "INSERT INTO `category`(`c_name`) VALUES ('$name')";
+    $query = "UPDATE `category` SET `c_name` = '$name' WHERE `c_id` = '$id'";
     $result = mysqli_query($conn, $query);
     if ($result) {
         header('location:index.php');
     }
     else {
-        echo "<script>alert('New category did not not added!')</script>";
+        echo "<script>alert('Oops! Category name did not updated')</script>";
     }
+  }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,13 +27,12 @@ if (isset($_POST["submit"])) {
     <?php include "../components/headeradmin.php"?>
   </div>
 
-  <!-- contact section -->
-
+  <!--  -->
   <section class="contact_section layout_padding">
     <div class="container ">
       <div class="heading_container justify-content-center">
         <h2 class="">
-          Add a category
+          Edit Category
         </h2>
       </div>
     </div>
@@ -38,12 +41,10 @@ if (isset($_POST["submit"])) {
         <div class="col-md-6 mx-auto">
           <form action="" method="POST">
             <div>
-              <input type="text" placeholder="Category Name" name="txtname"/>
+              <input type="text" placeholder="Category Name" value='<?php echo mysqli_fetch_row($cat_res)[0] ?>' name="txtname"/>
             </div>
             <div class="d-flex mt-4">
-            <button type="submit" name="submit">
-                Submit
-            </button>
+            <button type="submit" name="submit">Submit</button>
           </form>
         </div>
       </div>
